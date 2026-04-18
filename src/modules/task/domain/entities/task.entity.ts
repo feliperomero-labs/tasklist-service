@@ -3,7 +3,7 @@ export class Task {
         private readonly id: string,
         private title: string,
         private completed: boolean,
-        private createat: Date,
+        private createAt: Date,
     ) {}
 
     complete() {
