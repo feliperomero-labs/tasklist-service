@@ -1,5 +1,4 @@
-import { NotFoundException } from '@nestjs/common';
-import { TaskRepository } from '../../domain/repositories/task.repository';
+import { TaskRepository } from "../../domain/repositories/task.repository";
 
 export class CompleteTaskUseCase {
   constructor(private readonly taskRepository: TaskRepository) {}
@@ -8,16 +7,11 @@ export class CompleteTaskUseCase {
     const task = await this.taskRepository.findById(taskId);
 
     if (!task) {
-      throw new NotFoundException('Task not found');
+      throw new Error('Task not found');
     }
 
     task.complete();
 
-    const updatedTask = await this.taskRepository.save(task);
-
-    return {
-      id: updatedTask.getId(),
-      completed: updatedTask.isCompleted(),
-    };
+    return this.taskRepository.save(task);
   }
 }
