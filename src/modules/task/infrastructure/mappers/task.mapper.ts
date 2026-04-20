@@ -1,5 +1,5 @@
 import { Task } from "../../domain/entities/task.entity";
-import { TaskModel } from "../models/task.model";
+import { TaskModel } from "../database/models/task.model";
 
 export class TaskMapper {
     static toDomain(model: TaskModel): Task {
