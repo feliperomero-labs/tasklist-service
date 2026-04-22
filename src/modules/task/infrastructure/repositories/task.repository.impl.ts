@@ -27,4 +27,16 @@ export class TaskRepositoryImpl implements TaskRepository {
 
     return TaskMapper.toDomain(model);
   }
+
+  async list(): Promise<Task[]> {
+    const models = await this.taskModel.findAll({
+      order: [['createdAt', 'DESC']],
+    });
+
+    return models.map((model) => TaskMapper.toDomain(model));
+  }
+
+  async delete(id: string): Promise<void> {
+    await this.taskModel.destroy({ where: { id } });
+  }
 }
