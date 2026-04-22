@@ -1,7 +1,12 @@
-import { TaskRepository } from "../../domain/repositories/task.repository";
+import { Inject, Injectable } from '@nestjs/common';
+import { TaskRepository } from '../../domain/repositories/task.repository';
 
+@Injectable()
 export class CompleteTaskUseCase {
-  constructor(private readonly taskRepository: TaskRepository) {}
+  constructor(
+    @Inject(TaskRepository)
+    private readonly taskRepository: TaskRepository,
+  ) {}
 
   async execute(taskId: string) {
     const task = await this.taskRepository.findById(taskId);
