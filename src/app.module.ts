@@ -13,7 +13,7 @@ import { TaskModel } from './modules/task/infrastructure/database/models/task.mo
       password: process.env.DB_PASSWORD ?? 'postgres',
       database: process.env.DB_NAME ?? 'tasklist',
       autoLoadModels: true,
-      synchronize: true,
+      synchronize: false,
       logging: false,
       models: [TaskModel],
     }),
