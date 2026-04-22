@@ -1,0 +1,11 @@
+const path = require('path');
+require('ts-node/register/transpile-only');
+
+module.exports = {
+  config: path.resolve(
+    'src/modules/task/infrastructure/database/sequelize/sequelize-cli.config.cjs',
+  ),
+  'migrations-path': path.resolve(
+    'src/modules/task/infrastructure/database/sequelize/migrations',
+  ),
+};

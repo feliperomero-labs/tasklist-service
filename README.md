@@ -111,6 +111,17 @@ Instead, endpoints are action-based:
 - Relational database: PostgreSQL  
 - Naming convention: snake_case  
 
+### Migrations
+
+  # check migration status
+  npm run db:migrate:status
+
+  # apply pending migrations
+  npm run db:migrate
+
+  # rollback last migration
+  npm run db:migrate:undo
+
 ---
 
 ## ⚡ Cache
