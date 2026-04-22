@@ -4,5 +4,5 @@ export abstract class TaskRepository {
   abstract save(task: Task): Promise<Task>;
   abstract findById(id: string): Promise<Task | null>;
   abstract list(): Promise<Task[]>;
-  abstract delete(id: string): Promise<void>;
+  abstract delete(id: string): Promise<boolean>;
 }
